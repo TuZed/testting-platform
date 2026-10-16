@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="vi"
+      data-theme="light"
+      data-accent="emerald"
+      data-radius="soft"
+      data-density="comfortable"
+      data-motion="on">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AURORA Store — tuyển chọn thiết bị âm thanh, đồng hồ và phụ kiện cao cấp. Bản demo giao diện với dữ liệu mẫu.">
+<meta name="theme-color" content="#0E9F7E">
+<title>AURORA Store — Công nghệ &amp; phong cách sống cao cấp</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Bỏ qua tới nội dung chính</a>
+
+<!-- Nền trang trí -->
+<div class="bg-canvas" aria-hidden="true">
+  <span class="orb orb--1"></span>
+  <span class="orb orb--2"></span>
+  <span class="orb orb--3"></span>
+  <span class="grain"></span>
+</div>
+
+<!-- Dải thông báo demo (trung thực về dữ liệu) -->
+<div class="demo-strip">
+  <div class="shell demo-strip__inner">
+    <span class="dot" aria-hidden="true"></span>
+    <p>Bản demo giao diện — sản phẩm, giá và đánh giá là <strong>dữ liệu mẫu</strong>. Chưa kết nối cổng thanh toán.</p>
+  </div>
+</div>
+
+<!-- ================= HEADER ================= -->
+<header class="header" id="header">
+  <div class="shell header__inner">
+
+    <a class="brand" href="#top" aria-label="AURORA Store — về đầu trang">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none">
+          <path d="M16 3.5 27.5 25H4.5z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="2.2"/>
+        </svg>
+      </span>
+      <span class="brand__text">
+        <strong>AURORA</strong>
+        <em>store</em>
+      </span>
+    </a>
+
+    <nav class="nav" id="primaryNav" aria-label="Điều hướng chính">
+      <ul class="nav__list">
+        <li><a class="nav__link is-active" href="#catalog">Cửa hàng</a></li>
+        <li><a class="nav__link" href="#collections">Bộ sưu tập</a></li>
+        <li><a class="nav__link" href="#spotlight">Nổi bật</a></li>
+        <li><a class="nav__link" href="#service">Hỗ trợ</a></li>
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <button class="icon-btn" id="searchToggle" type="button"
+              aria-expanded="false" aria-controls="searchPanel" aria-label="Mở tìm kiếm">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/>
+          <path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Đổi chế độ sáng / tối">
+        <svg class="ico-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <svg class="ico-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"
+                stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <button class="icon-btn" id="wishBtn" type="button" aria-label="Danh sách yêu thích">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 20s-7.5-4.6-7.5-9.6A4.4 4.4 0 0 1 12 7.4a4.4 4.4 0 0 1 7.5 3c0 5-7.5 9.6-7.5 9.6z"
+                stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        </svg>
+        <span class="count" id="wishCount" hidden>0</span>
+      </button>
+
+      <button class="icon-btn" id="cartBtn" type="button"
+              aria-expanded="false" aria-controls="cartDrawer" aria-label="Mở giỏ hàng">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5.5 8h13l-1.2 11.2a2 2 0 0 1-2 1.8H8.7a2 2 0 0 1-2-1.8z"
+                stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M9 8V6.4a3 3 0 0 1 6 0V8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <span class="count" id="cartCount" hidden>0</span>
+      </button>
+
+      <button class="icon-btn icon-btn--accent" id="customizeBtn" type="button"
+              aria-expanded="false" aria-controls="customizer" aria-label="Tuỳ chỉnh giao diện">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 8h9M17 8h3M4 16h3M11 16h9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="15" cy="8" r="2.4" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="9" cy="16" r="2.4" stroke="currentColor" stroke-width="1.8"/>
+        </svg>
+      </button>
+
+      <button class="icon-btn nav-toggle" id="navToggle" type="button"
+              aria-expanded="false" aria-controls="primaryNav" aria-label="Mở menu điều hướng">
+        <span class="burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Thanh tìm kiếm -->
+  <div class="search-panel" id="searchPanel" hidden>
+    <div class="shell search-panel__inner">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="search-panel__ico">
+        <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/>
+        <path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <input type="search" id="searchInput" autocomplete="off"
+             placeholder="Tìm tai nghe, đồng hồ, máy ảnh, phụ kiện…"
+             aria-label="Từ khoá tìm kiếm sản phẩm">
+      <button class="btn btn--ghost btn--sm" id="searchClose" type="button">Đóng</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <div class="shell hero__grid">
+
+      <div class="hero__copy">
+        <span class="eyebrow">
+          <span class="eyebrow__pulse" aria-hidden="true"></span>
+          Bộ sưu tập 2026 · Tuyển chọn thủ công
+        </span>
+
+        <h1 class="hero__title">
+          Công nghệ <span class="grad">tinh xảo</span><br>
+          cho nhịp sống hiện đại.
+        </h1>
+
+        <p class="hero__lead">
+          Âm thanh, đồng hồ và phụ kiện được chọn lọc theo ba tiêu chí:
+          hoàn thiện tốt, dùng bền, và đẹp theo cách không phô trương.
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn btn--primary btn--lg" href="#catalog">
+            Khám phá cửa hàng
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h13m0 0-5.5-5.5M18 12l-5.5 5.5"
+                    stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a class="btn btn--glass btn--lg" href="#spotlight">Xem sản phẩm nổi bật</a>
+        </div>
+
+        <dl class="hero__facts">
+          <div class="fact">
+            <dt>Vận chuyển</dt>
+            <dd>Miễn phí từ 1.000.000₫</dd>
+          </div>
+          <div class="fact">
+            <dt>Bảo hành</dt>
+            <dd>24 tháng chính hãng</dd>
+          </div>
+          <div class="fact">
+            <dt>Đổi trả</dt>
+            <dd>30 ngày không lý do</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="hero__visual">
+        <div class="glass stage">
+          <div class="stage__halo" aria-hidden="true"></div>
+
+          <div class="stage__product" aria-hidden="true">
+            <span class="stage__shadow"></span>
+            <svg viewBox="0 0 64 64" fill="none">
+              <path d="M14 37v-5a18 18 0 0 1 36 0v5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+              <rect x="7" y="34" width="13" height="19" rx="6" stroke="currentColor" stroke-width="2.6"/>
+              <rect x="44" y="34" width="13" height="19" rx="6" stroke="currentColor" stroke-width="2.6"/>
+            </svg>
+          </div>
+
+          <div class="chip chip--tl">
+            <span class="chip__k">Chống ồn</span>
+            <span class="chip__v">Thích ứng</span>
+          </div>
+          <div class="chip chip--br">
+            <span class="chip__k">Pin</span>
+            <span class="chip__v">38 giờ</span>
+          </div>
+          <div class="chip chip--bl">
+            <span class="chip__k">Giá từ</span>
+            <span class="chip__v">4.290.000₫</span>
+          </div>
+
+          <div class="stage__caption">
+            <p class="stage__name">Aurora Pro</p>
+            <p class="stage__meta">NOVA Audio · Tai nghe chống ồn</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= TRUST MARQUEE ================= -->
+  <section class="trust" aria-label="Cam kết dịch vụ">
+    <div class="shell trust__grid">
+      <div class="trust__item">
+        <span class="trust__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="7" cy="18" r="1.8" stroke="currentColor" stroke-width="1.7"/><circle cx="17.5" cy="18" r="1.8" stroke="currentColor" stroke-width="1.7"/></svg>
+        </span>
+        <div><strong>Giao trong 24 giờ</strong><span>Nội thành TP.HCM &amp; Hà Nội</span></div>
+      </div>
+      <div class="trust__item">
+        <span class="trust__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3 5 6v6c0 4.2 2.9 7.6 7 9 4.1-1.4 7-4.8 7-9V6z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <div><strong>Chính hãng 100%</strong><span>Bảo hành uỷ quyền toàn quốc</span></div>
+      </div>
+      <div class="trust__item">
+        <span class="trust__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 9a8 8 0 0 1 14-3.5M20 15a8 8 0 0 1-14 3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M18 3v3.5h-3.5M6 21v-3.5h3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <div><strong>Đổi trả 30 ngày</strong><span>Hoàn tiền nếu chưa hài lòng</span></div>
+      </div>
+      <div class="trust__item">
+        <span class="trust__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M8 8h6.5a3 3 0 0 1 0 6H8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <div><strong>Trả góp 0%</strong><span>Qua thẻ tín dụng, kỳ hạn 3–12 tháng</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COLLECTIONS ================= -->
+  <section class="section" id="collections">
+    <div class="shell">
+      <header class="section__head">
+        <div>
+          <span class="eyebrow">Bộ sưu tập</span>
+          <h2 class="section__title">Chọn theo cách bạn sống</h2>
+        </div>
+        <p class="section__sub">
+          Ba nhóm sản phẩm dẫn dắt cửa hàng — mỗi nhóm có tiêu chí tuyển chọn riêng.
+        </p>
+      </header>
+
+      <div class="collections">
+        <a class="coll coll--hero" href="#catalog" data-jump="audio">
+          <span class="coll__bg" aria-hidden="true"></span>
+          <div class="coll__body">
+            <span class="coll__tag">Âm thanh</span>
+            <h3>Không gian riêng<br>giữa phố thị</h3>
+            <p>Tai nghe &amp; loa với chống ồn chủ động và âm trường rộng.</p>
+            <span class="coll__link">
+              Xem 12 sản phẩm
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <span class="coll__art" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none">
+              <path d="M14 37v-5a18 18 0 0 1 36 0v5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+              <rect x="7" y="34" width="13" height="19" rx="6" stroke="currentColor" stroke-width="2.4"/>
+              <rect x="44" y="34" width="13" height="19" rx="6" stroke="currentColor" stroke-width="2.4"/>
+            </svg>
+          </span>
+        </a>
+
+        <a class="coll" href="#catalog" data-jump="watch">
+          <span class="coll__bg" aria-hidden="true"></span>
+          <div class="coll__body">
+            <span class="coll__tag">Đeo &amp; đo</span>
+            <h3>Đồng hồ &amp; sức khoẻ</h3>
+            <p>Theo dõi giấc ngủ, nhịp tim và vận động hằng ngày.</p>
+          </div>
+          <span class="coll__art" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none">
+              <rect x="18" y="15" width="28" height="34" rx="10" stroke="currentColor" stroke-width="2.4"/>
+              <path d="M25 15l1.6-7h10.8L39 15M25 49l1.6 7h10.8L39 49" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+              <path d="M32 26v7l5 3" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+
+        <a class="coll" href="#catalog" data-jump="home">
+          <span class="coll__bg" aria-hidden="true"></span>
+          <div class="coll__body">
+            <span class="coll__tag">Không gian làm việc</span>
+            <h3>Bàn làm việc gọn</h3>
+            <p>Đèn, bàn phím và phụ kiện giúp tập trung lâu hơn.</p>
+          </div>
+          <span class="coll__art" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none">
+              <path d="M20 30 32 12l12 18z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+              <path d="M32 30v20M22 56h20" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CATALOG ================= -->
+  <section class="section" id="catalog">
+    <div class="shell">
+      <header class="section__head">
+        <div>
+          <span class="eyebrow">Cửa hàng</span>
+          <h2 class="section__title">Toàn bộ sản phẩm</h2>
+        </div>
+        <p class="section__sub">
+          Dữ liệu mẫu dùng để minh hoạ giao diện. Bộ lọc, sắp xếp và giỏ hàng hoạt động thật trong trình duyệt.
+        </p>
+      </header>
+
+      <div class="toolbar glass">
+        <div class="chips" role="group" aria-label="Lọc theo danh mục">
+          <button class="chip-btn is-active" data-cat="all" type="button">Tất cả</button>
+          <button class="chip-btn" data-cat="audio" type="button">Âm thanh</button>
+          <button class="chip-btn" data-cat="watch" type="button">Đồng hồ</button>
+          <button class="chip-btn" data-cat="camera" type="button">Máy ảnh</button>
+          <button class="chip-btn" data-cat="home" type="button">Nhà cửa</button>
+          <button class="chip-btn" data-cat="gear" type="button">Phụ kiện</button>
+        </div>
+
+        <div class="toolbar__right">
+          <p class="result-count" id="resultCount" aria-live="polite">8 sản phẩm</p>
+          <label class="select">
+            <span class="sr-only">Sắp xếp sản phẩm</span>
+            <select id="sortSelect">
+              <option value="featured">Nổi bật</option>
+              <option value="price-asc">Giá thấp → cao</option>
+              <option value="price-desc">Giá cao → thấp</option>
+              <option value="rating">Đánh giá cao nhất</option>
+            </select>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 10 5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </label>
+        </div>
+      </div>
+
+      <div class="grid" id="productGrid"></div>
+
+      <div class="empty" id="emptyState" hidden>
+        <span class="empty__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <h3>Không tìm thấy sản phẩm phù hợp</h3>
+        <p>Thử từ khoá khác hoặc bỏ bộ lọc danh mục.</p>
+        <button class="btn btn--ghost" id="clearFilters" type="button">Xoá bộ lọc</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SPOTLIGHT ================= -->
+  <section class="section" id="spotlight">
+    <div class="shell">
+      <div class="spotlight glass">
+        <div class="spotlight__visual">
+          <span class="spotlight__glow" aria-hidden="true"></span>
+          <span class="spotlight__art" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none">
+              <rect x="6" y="18" width="52" height="34" rx="9" stroke="currentColor" stroke-width="2.4"/>
+              <path d="M22 18l4-6h12l4 6" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+              <circle cx="32" cy="35" r="9" stroke="currentColor" stroke-width="2.4"/>
+              <circle cx="48" cy="26" r="2" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="spotlight__badge">Sản phẩm nổi bật</span>
+        </div>
+
+        <div class="spotlight__body">
+          <span class="eyebrow">Lumen X · Máy ảnh không gương lõi</span>
+          <h2 class="spotlight__title">Chi tiết trong từng khung hình, gọn trong một bàn tay.</h2>
+          <p class="spotlight__desc">
+            Cảm biến APS-C 26MP, lấy nét theo mắt theo thời gian thực và thân máy chỉ 410g.
+            Kèm ống kính kit 27mm f/2.8 trong bộ sản phẩm.
+          </p>
+
+          <ul class="spec-list">
+            <li><span>Cảm biến</span><strong>APS-C 26MP</strong></li>
+            <li><span>Video</span><strong>4K 60fps 10-bit</strong></li>
+            <li><span>Chống rung</span><strong>IBIS 5 trục</strong></li>
+            <li><span>Trọng lượng</span><strong>410 g</strong></li>
+          </ul>
+
+          <div class="spotlight__foot">
+            <div class="price price--lg">
+              <span class="price__now">18.900.000₫</span>
+              <span class="price__old">21.500.000₫</span>
+            </div>
+            <button class="btn btn--primary btn--lg" data-add="lumen-x" type="button">
+              Thêm vào giỏ
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICE / NEWSLETTER ================= -->
+  <section class="section" id="service">
+    <div class="shell service">
+      <div class="service__col">
+        <span class="eyebrow">Hỗ trợ</span>
+        <h2 class="section__title">Câu hỏi thường gặp</h2>
+
+        <div class="faq">
+          <details open>
+            <summary>Bao lâu thì tôi nhận được hàng?</summary>
+            <p>Nội thành TP.HCM và Hà Nội: trong 24 giờ. Các tỉnh thành khác: 2–4 ngày làm việc.</p>
+          </details>
+          <details>
+            <summary>Chính sách đổi trả thế nào?</summary>
+            <p>Đổi hoặc trả trong 30 ngày kể từ khi nhận, sản phẩm còn đủ phụ kiện và không hư hỏng do người dùng.</p>
+          </details>
+          <details>
+            <summary>Sản phẩm có bảo hành chính hãng không?</summary>
+            <p>Có. Toàn bộ sản phẩm đều bảo hành 24 tháng tại trung tâm uỷ quyền trên toàn quốc.</p>
+          </details>
+          <details>
+            <summary>Tôi có thể trả góp không?</summary>
+            <p>Có. Trả góp 0% qua thẻ tín dụng với kỳ hạn 3, 6 hoặc 12 tháng.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="service__col">
+        <div class="newsletter glass">
+          <span class="eyebrow">Bản tin</span>
+          <h3>Nhận thông báo sản phẩm mới</h3>
+          <p>Một email mỗi tháng. Không spam, huỷ đăng ký bất cứ lúc nào.</p>
+
+          <form class="newsletter__form" id="newsletterForm" novalidate>
+            <label class="field">
+              <span class="field__label">Email của bạn</span>
+              <input type="email" id="newsletterEmail" name="email"
+                     placeholder="ban@vidu.com" autocomplete="email" required>
+              <span class="field__error" id="newsletterError" role="alert" hidden></span>
+            </label>
+            <button class="btn btn--primary" type="submit">Đăng ký</button>
+          </form>
+
+          <p class="newsletter__note">
+            Bản demo: email không được gửi đi đâu cả.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="shell footer__grid">
+    <div class="footer__brand">
+      <a class="brand" href="#top" aria-label="AURORA Store">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M16 3.5 27.5 25H4.5z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+            <circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="2.2"/>
+          </svg>
+        </span>
+        <span class="brand__text"><strong>AURORA</strong><em>store</em></span>
+      </a>
+      <p>Tuyển chọn thiết bị công nghệ và phụ kiện cho nhịp sống hiện đại.</p>
+    </div>
+
+    <nav class="footer__col" aria-label="Liên kết cửa hàng">
+      <h4>Cửa hàng</h4>
+      <ul>
+        <li><a href="#catalog">Tất cả sản phẩm</a></li>
+        <li><a href="#collections">Bộ sưu tập</a></li>
+        <li><a href="#spotlight">Sản phẩm nổi bật</a></li>
+      </ul>
+    </nav>
+
+    <nav class="footer__col" aria-label="Liên kết hỗ trợ">
+      <h4>Hỗ trợ</h4>
+      <ul>
+        <li><a href="#service">Câu hỏi thường gặp</a></li>
+        <li><a href="#service">Chính sách đổi trả</a></li>
+        <li><a href="#service">Bảo hành</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer__col">
+      <h4>Liên hệ</h4>
+      <ul>
+        <li><a href="mailto:hello@aurora.demo">hello@aurora.demo</a></li>
+        <li><a href="tel:+8428000000">028 0000 000</a></li>
+        <li><span>Quận 1, TP. Hồ Chí Minh</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="shell footer__bottom">
+    <p>© <span id="year">2026</span> AURORA Store — bản demo giao diện.</p>
+    <p>Dữ liệu sản phẩm là dữ liệu mẫu, không phải cửa hàng thật.</p>
+  </div>
+</footer>
+
+<!-- ================= SCRIM ================= -->
+<div class="scrim" id="scrim" hidden></div>
+
+<!-- ================= CART DRAWER ================= -->
+<aside class="drawer layer" id="cartDrawer" role="dialog" aria-modal="true"
+       aria-labelledby="cartTitle" aria-hidden="true">
+  <header class="drawer__head">
+    <h2 id="cartTitle">Giỏ hàng</h2>
+    <button class="icon-btn icon-btn--ghost" id="cartClose" type="button" aria-label="Đóng giỏ hàng">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+    </button>
+  </header>
+
+  <div class="drawer__body" id="cartBody"></div>
+
+  <footer class="drawer__foot">
+    <div class="sum">
+      <span>Tạm tính</span>
+      <strong id="cartSubtotal">0₫</strong>
+    </div>
+    <p class="drawer__note">Phí vận chuyển được tính ở bước thanh toán.</p>
+    <button class="btn btn--primary btn--block btn--lg" id="checkoutBtn" type="button">
+      Tiến hành thanh toán
+    </button>
+  </footer>
+</aside>
+
+<!-- ================= QUICK VIEW MODAL ================= -->
+<div class="modal layer" id="quickView" role="dialog" aria-modal="true"
+     aria-labelledby="qvTitle" aria-hidden="true">
+  <div class="modal__panel glass" id="qvPanel">
+    <button class="icon-btn icon-btn--ghost modal__close" id="qvClose" type="button" aria-label="Đóng">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+    </button>
+    <div class="modal__content" id="qvContent"></div>
+  </div>
+</div>
+
+<!-- ================= CUSTOMIZER ================= -->
+<aside class="customizer layer" id="customizer" role="dialog" aria-modal="true"
+       aria-labelledby="czTitle" aria-hidden="true">
+  <header class="customizer__head">
+    <div>
+      <h2 id="czTitle">Tuỳ chỉnh giao diện</h2>
+      <p>Thay đổi được lưu trên trình duyệt này.</p>
+    </div>
+    <button class="icon-btn icon-btn--ghost" id="czClose" type="button" aria-label="Đóng tuỳ chỉnh">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+    </button>
+  </header>
+
+  <div class="customizer__body">
+
+    <section class="cz-group">
+      <h3 class="cz-group__title">Chế độ màu</h3>
+      <div class="seg" role="radiogroup" aria-label="Chế độ màu">
+        <button class="seg__btn is-active" data-theme-set="light" role="radio" aria-checked="true" type="button">Sáng</button>
+        <button class="seg__btn" data-theme-set="dark" role="radio" aria-checked="false" type="button">Tối</button>
+      </div>
+    </section>
+
+    <section class="cz-group">
+      <h3 class="cz-group__title">Tông màu nhấn</h3>
+      <div class="swatches" role="radiogroup" aria-label="Tông màu nhấn">
+        <button class="swatch is-active" data-accent-set="emerald" role="radio" aria-checked="true" type="button" style="--s1:#0E9F7E;--s2:#0B72B5" aria-label="Emerald">
+          <span></span>
+        </button>
+        <button class="swatch" data-accent-set="ocean" role="radio" aria-checked="false" type="button" style="--s1:#0B72B5;--s2:#0E9F7E" aria-label="Ocean">
+          <span></span>
+        </button>
+        <button class="swatch" data-accent-set="teal" role="radio" aria-checked="false" type="button" style="--s1:#0D8F9F;--s2:#1163A8" aria-label="Teal">
+          <span></span>
+        </button>
+        <button class="swatch" data-accent-set="jade" role="radio" aria-checked="false" type="button" style="--s1:#1F9E5E;--s2:#0F6FB0" aria-label="Jade">
+          <span></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="cz-group">
+      <h3 class="cz-group__title">Bo góc</h3>
+      <div class="seg" role="radiogroup" aria-label="Bo góc">
+        <button class="seg__btn" data-radius-set="sharp" role="radio" aria-checked="false" type="button">Nhỏ</button>
+        <button class="seg__btn is-active" data-radius-set="soft" role="radio" aria-checked="true" type="button">Vừa</button>
+        <button class="seg__btn" data-radius-set="round" role="radio" aria-checked="false" type="button">Lớn</button>
+      </div>
+    </section>
+
+    <section class="cz-group">
+      <h3 class="cz-group__title">Mật độ</h3>
+      <div class="seg" role="radiogroup" aria-label="Mật độ hiển thị">
+        <button class="seg__btn" data-density-set="compact" role="radio" aria-checked="false" type="button">Gọn</button>
+        <button class="seg__btn is-active" data-density-set="comfortable" role="radio" aria-checked="true" type="button">Vừa</button>
+        <button class="seg__btn" data-density-set="spacious" role="radio" aria-checked="false" type="button">Rộng</button>
+      </div>
+    </section>
+
+    <section class="cz-group">
+      <h3 class="cz-group__title">
+        Độ mờ kính
+        <output id="blurOut">18px</output>
+      </h3>
+      <input class="range" type="range" id="blurRange" min="0" max="30" step="2" value="18"
+             aria-label="Độ mờ của hiệu ứng kính">
+    </section>
+
+    <section class="cz-group">
+      <h3 class="cz-group__title">Chuyển động</h3>
+      <div class="seg" role="radiogroup" aria-label="Chuyển động">
+        <button class="seg__btn is-active" data-motion-set="on" role="radio" aria-checked="true" type="button">Bật</button>
+        <button class="seg__btn" data-motion-set="off" role="radio" aria-checked="false" type="button">Tắt</button>
+      </div>
+    </section>
+
+    <button class="btn btn--ghost btn--block" id="czReset" type="button">Khôi phục mặc định</button>
+  </div>
+</aside>
+
+<!-- ================= TOASTS ================= -->
+<div class="toasts" id="toasts" role="status" aria-live="polite" aria-atomic="false"></div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
